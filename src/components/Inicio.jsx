@@ -1,12 +1,24 @@
 import { useState } from "react";
 import { juegosDisponibles } from "../data/juegos";
+import LayoutJuego from "./LayoutJuego";
 import JuegoFrases from "./JuegoFrases"; // tu juego ya descompuesto
 
 function Inicio() {
   const [juegoSeleccionado, setJuegoSeleccionado] = useState(null);
 
+  function volverAlMenu() {
+    setJuegoSeleccionado(null);
+  }
+
   if (juegoSeleccionado === "frases") {
-    return <JuegoFrases />;
+    return (
+      <LayoutJuego
+        titulo="Juego de Frases"
+        onVolverAlMenu={volverAlMenu}
+      >
+        <JuegoFrases />
+      </LayoutJuego>
+    );
   }
 
   return (
