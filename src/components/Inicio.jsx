@@ -1,26 +1,7 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import { juegosDisponibles } from "../data/juegos";
-import LayoutJuego from "./LayoutJuego";
-import JuegoFrases from "./JuegoFrases"; // tu juego ya descompuesto
 
 function Inicio() {
-  const [juegoSeleccionado, setJuegoSeleccionado] = useState(null);
-
-  function volverAlMenu() {
-    setJuegoSeleccionado(null);
-  }
-
-  if (juegoSeleccionado === "frases") {
-    return (
-      <LayoutJuego
-        titulo="Juego de Frases"
-        onVolverAlMenu={volverAlMenu}
-      >
-        <JuegoFrases />
-      </LayoutJuego>
-    );
-  }
-
   return (
     <div>
       <h1>Bienvenido a los Juegos de Fútbol</h1>
@@ -42,9 +23,9 @@ function Inicio() {
             />
             <h3>{juego.nombre}</h3>
             <p>{juego.descripcion}</p>
-            <button onClick={() => setJuegoSeleccionado(juego.id)}>
-              Jugar
-            </button>
+            <Link to={`/juegos/${juego.id}`}>
+              <button>Jugar</button>
+            </Link>
           </div>
         ))}
       </div>
@@ -53,3 +34,4 @@ function Inicio() {
 }
 
 export default Inicio;
+
