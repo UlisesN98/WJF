@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import { juegosDisponibles } from "../data/juegos";
+import { registroJuegos } from "../juegos/registroJuegos";
 
 function Inicio() {
   return (
     <div>
       <h1>Bienvenido a los Juegos de Fútbol</h1>
+
       <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
-        {juegosDisponibles.map(juego => (
+        {registroJuegos.map(juego => (
           <div
             key={juego.id}
             style={{
@@ -23,7 +24,8 @@ function Inicio() {
             />
             <h3>{juego.nombre}</h3>
             <p>{juego.descripcion}</p>
-            <Link to={`/juegos/${juego.id}`}>
+
+            <Link to={juego.ruta}>
               <button>Jugar</button>
             </Link>
           </div>
