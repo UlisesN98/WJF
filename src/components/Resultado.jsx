@@ -1,11 +1,9 @@
 function Resultado({ esCorrecta, respuestaCorrecta, evidencia, onSiguiente }) {
   return (
     <div>
-      {esCorrecta ? (
-        <p>✅ Correcto</p>
-      ) : (
-        <p>❌ Incorrecto</p>
-      )}
+      <p className={`resultado ${esCorrecta ? "correcto" : "incorrecto"}`}>
+        {esCorrecta ? "✔ Correcto" : "✖ Incorrecto"}
+      </p>
 
       <p>
         Respuesta correcta: <strong>{respuestaCorrecta}</strong>

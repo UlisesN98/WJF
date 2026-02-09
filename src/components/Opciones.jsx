@@ -1,6 +1,6 @@
 function Opciones({ opciones, onElegir }) {
   return (
-    <div>
+    <div className="opciones">
       {opciones.map((opcion) => (
         <button
           key={opcion}

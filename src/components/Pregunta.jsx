@@ -1,6 +1,6 @@
 function Pregunta({ texto }) {
   return (
-    <blockquote>
+    <blockquote className="pregunta">
       “{texto}”
     </blockquote>
   );

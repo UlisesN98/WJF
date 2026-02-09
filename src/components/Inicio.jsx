@@ -3,20 +3,12 @@ import { registroJuegos } from "../juegos/registroJuegos";
 
 function Inicio() {
   return (
-    <div>
+    <div className="inicio">
       <h1>Bienvenido a los Juegos de Fútbol</h1>
 
-      <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+      <div className="lista-juegos">
         {registroJuegos.map(juego => (
-          <div
-            key={juego.id}
-            style={{
-              border: "1px solid #ccc",
-              padding: "10px",
-              width: "200px",
-              textAlign: "center"
-            }}
-          >
+          <div key={juego.id} className="card-juego">
             <img
               src={juego.imagen}
               alt={juego.nombre}

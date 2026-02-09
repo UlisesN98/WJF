@@ -1,6 +1,6 @@
 function FinJuego({ puntaje, total, onReiniciar }) {
   return (
-    <div>
+    <div className="fin-juego">
       <p>Fin del juego</p>
       <p>Puntaje final: {puntaje}</p>
       <p>

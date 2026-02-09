@@ -4,8 +4,8 @@ function LayoutJuego({ titulo, children }) {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <header>
+    <div className="layout-juego">
+      <header className="layout-header">
         <button onClick={() => navigate("/")}>
           ← Volver al menú
         </button>
@@ -13,7 +13,9 @@ function LayoutJuego({ titulo, children }) {
         {titulo && <h1>{titulo}</h1>}
       </header>
 
-      <main>{children}</main>
+      <main className="layout-contenido">
+        {children}
+      </main>
     </div>
   );
 }
