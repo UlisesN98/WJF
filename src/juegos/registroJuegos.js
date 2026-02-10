@@ -9,4 +9,12 @@ export const registroJuegos = [
     ruta: "/juegos/frases",
     Componente: JuegoFrases,
   },
+  {
+    id: "camisetas",
+    nombre: "Kamisama",
+    descripcion: "Adivina quién NO vistió cada una de estas camisetas",
+    imagen: "/de_paul_boca.jpeg",
+    ruta: "/juegos/camisetas",
+    Componente: JuegoFrases,
+  },
 ];

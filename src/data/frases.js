@@ -26,5 +26,19 @@ export const frases = [
       tipo: "imagen",
       src: "/un_hombre_con_ideas_nuevas.jpeg"
     }
+  },
+  {
+    texto: "Yo pienso que por ser guapo, rico y un gran jugador, las personas me tienen envidia",
+    opciones: [
+      "Neymar",
+      "David Beckham",
+      "Cristiano Ronaldo",
+      "Vinicius Junior"
+    ],
+    correcta: "Cristiano Ronaldo",
+    evidencia: {
+      tipo: "imagen",
+      src: "/guapo_rico_buen_jugador.jpeg"
+    }
   }
 ];
