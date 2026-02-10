@@ -1,3 +1,5 @@
+import "./Opciones.css";
+
 function Opciones({ opciones, onElegir }) {
   return (
     <div className="opciones">

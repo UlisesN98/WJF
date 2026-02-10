@@ -1,3 +1,5 @@
+import "./FinJuego.css";
+
 function FinJuego({ puntaje, total, onReiniciar }) {
   return (
     <div className="fin-juego">

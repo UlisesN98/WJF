@@ -1,0 +1,12 @@
+.resultado {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.resultado.correcto {
+  color: #22c55e;
+}
+
+.resultado.incorrecto {
+  color: #ef4444;
+}

@@ -1,3 +1,4 @@
+import "./Inicio.css";
 import { Link } from "react-router-dom";
 import { registroJuegos } from "../juegos/registroJuegos";
 

@@ -1,0 +1,18 @@
+.opciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.opciones button {
+  padding: 12px;
+  background: #020617;
+  border: 1px solid #334155;
+  color: #e5e7eb;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.opciones button:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+}

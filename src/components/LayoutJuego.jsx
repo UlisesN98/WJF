@@ -1,3 +1,4 @@
+import "./LayoutJuego.css";
 import { useNavigate } from "react-router-dom";
 
 function LayoutJuego({ nombre, children }) {

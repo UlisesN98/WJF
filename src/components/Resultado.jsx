@@ -1,3 +1,5 @@
+import "./Resultado.css";
+
 function Resultado({ esCorrecta, respuestaCorrecta, evidencia, onSiguiente }) {
   return (
     <div>
