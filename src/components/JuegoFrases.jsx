@@ -29,8 +29,8 @@ function JuegoFrases() {
 
   return (
     <div>
-      <h2>¿Quién dijo esta frase?</h2>
       <p>Puntaje: {puntaje}</p>
+      <h2>¿Quién dijo esta frase?</h2>
 
       <Pregunta texto={frase.texto} />
 

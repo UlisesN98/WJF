@@ -3,11 +3,10 @@ import JuegoFrases from "../components/JuegoFrases";
 export const registroJuegos = [
   {
     id: "frases",
-    nombre: "Juego de Frases",
-    descripcion: "Adivina quién dijo cada frase famosa del fútbol",
-    imagen: "/frases.png",
+    nombre: "Anda a Chequearlo",
+    descripcion: "Adivina quién dijo cada una de estas frases famosas",
+    imagen: "/el_sharaawy.jpeg",
     ruta: "/juegos/frases",
-    titulo: "Juego de Frases",
     Componente: JuegoFrases,
   },
 ];

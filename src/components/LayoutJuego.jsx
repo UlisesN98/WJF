@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function LayoutJuego({ titulo, children }) {
+function LayoutJuego({ nombre, children }) {
   const navigate = useNavigate();
 
   return (
@@ -10,7 +10,7 @@ function LayoutJuego({ titulo, children }) {
           ← Volver al menú
         </button>
 
-        {titulo && <h1>{titulo}</h1>}
+        {nombre && <h1>{nombre}</h1>}
       </header>
 
       <main className="layout-contenido">

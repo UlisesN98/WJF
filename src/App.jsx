@@ -15,7 +15,7 @@ function App() {
           key={juego.id}
           path={juego.ruta}
           element={
-            <LayoutJuego titulo={juego.titulo}>
+            <LayoutJuego nombre={juego.nombre}>
               <juego.Componente />
             </LayoutJuego>
           }
