@@ -5,8 +5,6 @@ import { registroJuegos } from "../juegos/registroJuegos";
 function Inicio() {
   return (
     <div className="inicio">
-      <h1>Bienvenido a WJF</h1>
-
       <div className="lista-juegos">
         {registroJuegos.map(juego => (
           <div key={juego.id} className="card-juego">

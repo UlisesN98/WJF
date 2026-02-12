@@ -7,10 +7,6 @@ function LayoutJuego({ nombre, children }) {
   return (
     <div className="layout-juego">
       <header className="layout-header">
-        <button onClick={() => navigate("/")}>
-          ← Volver al menú
-        </button>
-
         {nombre && <h1>{nombre}</h1>}
       </header>
 

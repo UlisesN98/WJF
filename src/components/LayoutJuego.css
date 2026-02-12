@@ -14,10 +14,6 @@
   margin-bottom: 20px;
 }
 
-.layout-header button {
-  align-self: flex-start;
-}
-
 .layout-contenido {
   display: flex;
   flex-direction: column;
