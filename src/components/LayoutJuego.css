@@ -1,6 +1,6 @@
 .layout-juego {
   max-width: 720px;
-  margin: 40px auto;
+  margin: auto;
   padding: 30px;
   background: #020617;
   border-radius: 14px;
@@ -10,6 +10,7 @@
 .layout-header {
   display: flex;
   flex-direction: column;
+  text-align: center;
   gap: 15px;
   margin-bottom: 20px;
 }
