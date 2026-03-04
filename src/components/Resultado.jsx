@@ -3,10 +3,6 @@ import "./Resultado.css";
 function Resultado({ esCorrecta, respuestaCorrecta, evidencia, onSiguiente }) {
   return (
     <div>
-      <p className={`resultado ${esCorrecta ? "correcto" : "incorrecto"}`}>
-        {esCorrecta ? "✔ Correcto" : "✖ Incorrecto"}
-      </p>
-
       <p>
         Respuesta correcta: <strong>{respuestaCorrecta}</strong>
       </p>

@@ -2,14 +2,15 @@ import Pregunta from "./Pregunta";
 import Opciones from "./Opciones";
 import Resultado from "./Resultado";
 import FinJuego from "./FinJuego";
+import ResultadoSimbolo from "./ResultadoSimbolo";
 import useJuegoPorRondas from "../hooks/useJuegoPorRondas";
 import { frases } from "../data/frases";
 
 function JuegoFrases() {
   const {
     actual: frase,
+    fase,
     seleccion,
-    mostrarResultado,
     puntaje,
     elegirOpcion,
     siguiente,
@@ -17,7 +18,7 @@ function JuegoFrases() {
     total
   } = useJuegoPorRondas({ datos: frases, esCorrecta: (frase, opcion) => opcion === frase.correcta });
 
-  if (!frase) {
+  if (fase === "fin") {
     return (
       <FinJuego
         puntaje={puntaje}
@@ -30,18 +31,22 @@ function JuegoFrases() {
   return (
     <div>
       <p>Puntaje: {puntaje}</p>
-      <h2>¿Quién dijo esta frase?</h2>
 
-      <Pregunta texto={frase.texto} />
+      {fase === "pregunta" && (
+        <>
+          <h2>¿Quién dijo esta frase?</h2>
+          <Pregunta texto={frase.texto} />
+          <Opciones opciones={frase.opciones} onElegir={elegirOpcion} />
+        </>
+      )}
 
-      {!mostrarResultado && (
-        <Opciones
-          opciones={frase.opciones}
-          onElegir={elegirOpcion}
+      {fase === "feedback" && (
+        <ResultadoSimbolo
+          esCorrecta={seleccion === frase.correcta}
         />
       )}
 
-      {mostrarResultado && (
+      {fase === "explicacion" && (
         <Resultado
           esCorrecta={seleccion === frase.correcta}
           respuestaCorrecta={frase.correcta}

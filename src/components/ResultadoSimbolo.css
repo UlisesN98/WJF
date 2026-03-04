@@ -1,12 +1,12 @@
-/* .resultado {
+.feedback {
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-.resultado.correcto {
+.feedback.correcto {
   color: #22c55e;
 }
 
-.resultado.incorrecto {
+.feedback.incorrecto {
   color: #ef4444;
-} */
+}
