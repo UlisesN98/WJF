@@ -3,19 +3,19 @@ import "./Resultado.css";
 function Resultado({ esCorrecta, respuestaCorrecta, evidencia, onSiguiente }) {
   return (
     <div>
-      <p>
+      <p className="respuesta-correcta">
         Respuesta correcta: <strong>{respuestaCorrecta}</strong>
       </p>
 
       {evidencia.tipo === "imagen" && (
         <img
+          className="respuesta-evidencia"
           src={evidencia.src}
           alt="Evidencia"
-          width={300}
         />
       )}
 
-      <button onClick={onSiguiente}>
+      <button className="boton-siguiente" onClick={onSiguiente}>
         Siguiente frase
       </button>
     </div>

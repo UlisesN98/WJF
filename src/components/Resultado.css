@@ -1,12 +1,13 @@
-/* .resultado {
-  font-size: 1.2rem;
-  font-weight: bold;
+.respuesta-correcta {
+  text-align: center;
 }
 
-.resultado.correcto {
-  color: #22c55e;
+.respuesta-evidencia {
+  display: block;
+  margin: 20px auto;
 }
 
-.resultado.incorrecto {
-  color: #ef4444;
-} */
+.boton-siguiente {
+  display: block;
+  margin: 20px auto;
+}
