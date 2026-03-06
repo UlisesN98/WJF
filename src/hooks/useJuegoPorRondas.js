@@ -1,12 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10 }) {
+function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPorPregunta = 10 }) {
   const [indice, setIndice] = useState(0);
   const [seleccion, setSeleccion] = useState(null);
   const [fase, setFase] = useState("pregunta");
   const [puntaje, setPuntaje] = useState(0);
+  const [tiempoRestante, setTiempoRestante] = useState(tiempoPorPregunta);
 
   const actual = datos[indice];
+
+  useEffect(() => {
+
+    if (fase !== "pregunta") return;
+
+    const intervalo = setInterval(() => {
+
+      setTiempoRestante(prev => {
+
+        if (prev <= 1) {
+          clearInterval(intervalo);
+
+          elegirOpcion(null); // No se seleccionó ninguna opción a tiempo
+
+          return 0;
+        }
+
+        return prev - 1;
+      });
+
+    }, 1000);
+
+    return () => clearInterval(intervalo);
+
+  }, [fase, indice]);
 
   function elegirOpcion(opcion) {
     setSeleccion(opcion);
@@ -31,6 +57,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10 }) {
     setIndice(prev => prev + 1);
     setSeleccion(null);
     setFase("pregunta");
+    setTiempoRestante(tiempoPorPregunta);
   }
 
   function reiniciar() {
@@ -38,6 +65,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10 }) {
     setSeleccion(null);
     setFase("pregunta");
     setPuntaje(0);
+    setTiempoRestante(tiempoPorPregunta);
   }
 
   return {
@@ -45,6 +73,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10 }) {
     fase,
     seleccion,
     puntaje,
+    tiempoRestante,
     elegirOpcion,
     siguiente,
     reiniciar,

@@ -1,12 +1,12 @@
 import "./FinJuego.css";
 
-function FinJuego({ puntaje, total, onReiniciar }) {
+function FinJuego({ puntaje, puntosPorAcierto, total, onReiniciar }) {
   return (
     <div className="fin-juego">
       <p>Fin del juego</p>
       <p>Puntaje final: {puntaje}</p>
       <p>
-        Aciertos: {puntaje / 10} de {total}
+        Aciertos: {puntaje / puntosPorAcierto} de {total}
       </p>
       <button onClick={onReiniciar}>
         Reiniciar juego

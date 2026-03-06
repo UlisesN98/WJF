@@ -6,22 +6,32 @@ import ResultadoSimbolo from "./ResultadoSimbolo";
 import useJuegoPorRondas from "../hooks/useJuegoPorRondas";
 import { frases } from "../data/frases";
 
+const puntosPorAcierto = 40;
+const tiempoPorPregunta = 15;
+
 function JuegoFrases() {
   const {
     actual: frase,
     fase,
     seleccion,
     puntaje,
+    tiempoRestante,
     elegirOpcion,
     siguiente,
     reiniciar,
     total
-  } = useJuegoPorRondas({ datos: frases, esCorrecta: (frase, opcion) => opcion === frase.correcta });
+  } = useJuegoPorRondas({ 
+    datos: frases, 
+    esCorrecta: (frase, opcion) => opcion === frase.correcta,
+    puntosPorAcierto,
+    tiempoPorPregunta
+  });
 
   if (fase === "fin") {
     return (
       <FinJuego
         puntaje={puntaje}
+        puntosPorAcierto={puntosPorAcierto}
         total={total}
         onReiniciar={reiniciar}
       />
@@ -34,6 +44,8 @@ function JuegoFrases() {
 
       {fase === "pregunta" && (
         <>
+          <p>Tiempo: {tiempoRestante} s</p>
+
           <h2>¿Quién dijo esta frase?</h2>
           <Pregunta texto={frase.texto} />
           <Opciones opciones={frase.opciones} onElegir={elegirOpcion} />
