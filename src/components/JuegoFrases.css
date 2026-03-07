@@ -1,0 +1,25 @@
+.info-superior {
+  display: flex;               /* activa Flexbox solo aquí */
+  justify-content: center;     /* centra horizontalmente ambos elementos */
+  gap: 20px;                   /* espacio entre puntaje y tiempo */
+  margin-bottom: 20px;         /* separación con el resto del contenido */
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.puntaje, .tiempo {
+  margin: 0;
+  padding: 5px 10px;
+  background-color: #0f172a;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tiempo {
+  color: #e5e7eb;
+  transition: color 0.3s;
+}
+
+.tiempo.casi-agotado {
+  color: #ef4444;
+}
