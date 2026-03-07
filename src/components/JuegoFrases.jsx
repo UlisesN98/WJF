@@ -55,12 +55,12 @@ function JuegoFrases() {
       {fase === "feedback" && (
         <ResultadoSimbolo
           esCorrecta={seleccion === frase.correcta}
+          timeout={seleccion === "timeout"}
         />
       )}
 
       {fase === "explicacion" && (
         <Resultado
-          esCorrecta={seleccion === frase.correcta}
           respuestaCorrecta={frase.correcta}
           evidencia={frase.evidencia}
           onSiguiente={siguiente}

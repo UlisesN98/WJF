@@ -20,7 +20,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
         if (prev <= 1) {
           clearInterval(intervalo);
 
-          elegirOpcion(null); // No se seleccionó ninguna opción a tiempo
+          elegirOpcion("timeout");
 
           return 0;
         }

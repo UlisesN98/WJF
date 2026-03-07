@@ -1,6 +1,6 @@
 import "./Resultado.css";
 
-function Resultado({ esCorrecta, respuestaCorrecta, evidencia, onSiguiente }) {
+function Resultado({ respuestaCorrecta, evidencia, onSiguiente }) {
   return (
     <div>
       <p className="respuesta-correcta">
