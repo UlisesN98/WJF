@@ -8,6 +8,7 @@
 }
 
 .boton-siguiente {
+  background-color: var(--bg-card);
   display: block;
   margin: auto;
 }

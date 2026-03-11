@@ -17,7 +17,7 @@ function Inicio() {
             <p>{juego.descripcion}</p>
 
             <Link to={juego.ruta}>
-              <button>Jugar</button>
+              <button className="jugar-btn">Jugar</button>
             </Link>
           </div>
         ))}

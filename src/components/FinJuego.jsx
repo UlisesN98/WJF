@@ -8,7 +8,7 @@ function FinJuego({ puntaje, puntosPorAcierto, total, onReiniciar }) {
       <p>
         Aciertos: {puntaje / puntosPorAcierto} de {total}
       </p>
-      <button onClick={onReiniciar}>
+      <button onClick={onReiniciar} className="reiniciar-btn">
         Reiniciar juego
       </button>
     </div>

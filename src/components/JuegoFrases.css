@@ -10,16 +10,16 @@
 .puntaje, .tiempo {
   margin: 0;
   padding: 5px 10px;
-  background-color: #0f172a;
+  background-color: var(--bg-card);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-soft);
 }
 
 .tiempo {
-  color: #e5e7eb;
+  color: var(--text-main);
   transition: color 0.3s;
 }
 
 .tiempo.casi-agotado {
-  color: #ef4444;
+  color: var(--warning);
 }

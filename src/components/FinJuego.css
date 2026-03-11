@@ -1,8 +1,16 @@
 .fin-juego {
   text-align: center;
+  font-weight: bold;
   padding: 30px;
 }
 
 .fin-juego p {
-  margin: 10px 0;
+  display: block;
+  margin: 20px auto;
+}
+
+.reiniciar-btn {
+  background-color: var(--bg-card);
+  display: block;
+  margin: auto;
 }

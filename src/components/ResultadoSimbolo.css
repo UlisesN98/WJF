@@ -5,9 +5,9 @@
 }
 
 .feedback.correcto {
-  color: #22c55e;
+  color: var(--success);
 }
 
 .feedback.incorrecto {
-  color: #ef4444;
+  color: var(--error);
 }
