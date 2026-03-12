@@ -6,6 +6,8 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
   const [fase, setFase] = useState("pregunta");
   const [puntaje, setPuntaje] = useState(0);
   const [tiempoRestante, setTiempoRestante] = useState(tiempoPorPregunta);
+  const [puntajeRonda, setPuntajeRonda] = useState(0);
+  const [aciertos, setAciertos] = useState(0);
 
   const actual = datos[indice];
 
@@ -37,9 +39,18 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
   function elegirOpcion(opcion) {
     setSeleccion(opcion);
 
+    let puntosObtenidos = 0;
+
     if (esCorrecta(actual, opcion)) {
-      setPuntaje(prev => prev + puntosPorAcierto);
+      puntosObtenidos = Math.max(
+        1,
+        Math.round(puntosPorAcierto * (tiempoRestante / tiempoPorPregunta))
+      );
+      setPuntaje(prev => prev + puntosObtenidos);
+      setAciertos(prev => prev + 1);
     }
+
+    setPuntajeRonda(puntosObtenidos); 
 
     setFase("feedback");
 
@@ -58,6 +69,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     setSeleccion(null);
     setFase("pregunta");
     setTiempoRestante(tiempoPorPregunta);
+    setPuntajeRonda(0);
   }
 
   function reiniciar() {
@@ -66,6 +78,8 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     setFase("pregunta");
     setPuntaje(0);
     setTiempoRestante(tiempoPorPregunta);
+    setPuntajeRonda(0);
+    setAciertos(0);
   }
 
   return {
@@ -73,7 +87,9 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     fase,
     seleccion,
     puntaje,
+    puntajeRonda,
     tiempoRestante,
+    aciertos,
     elegirOpcion,
     siguiente,
     reiniciar,

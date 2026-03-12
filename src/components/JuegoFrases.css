@@ -23,3 +23,15 @@
 .tiempo.casi-agotado {
   color: var(--warning);
 }
+
+.puntaje-obtenido {
+  color: var(--success);
+  font-weight: bold;
+  margin-left: 1px;
+  animation: aparecer 0.8s ease;
+}
+
+@keyframes aparecer {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

@@ -16,7 +16,9 @@ function JuegoFrases() {
     fase,
     seleccion,
     puntaje,
+    puntajeRonda,
     tiempoRestante,
+    aciertos,
     elegirOpcion,
     siguiente,
     reiniciar,
@@ -32,7 +34,7 @@ function JuegoFrases() {
     return (
       <FinJuego
         puntaje={puntaje}
-        puntosPorAcierto={puntosPorAcierto}
+        aciertos={aciertos}
         total={total}
         onReiniciar={reiniciar}
       />
@@ -42,7 +44,15 @@ function JuegoFrases() {
   return (
     <div>
       <div className="info-superior">
-        <p className="puntaje">Puntaje: {puntaje}</p>
+        <p className="puntaje">
+          Puntaje: {fase === "feedback" && puntajeRonda > 0
+            ? puntaje - puntajeRonda
+            : puntaje
+          }
+          {fase === "feedback" && puntajeRonda > 0 && (
+            <span className="puntaje-obtenido"> +{puntajeRonda}</span>
+          )}
+        </p>
         {fase === "pregunta" && (
           <p className={`tiempo ${tiempoRestante <= 5 ? "casi-agotado" : ""}`}>
             Tiempo: {tiempoRestante} s
