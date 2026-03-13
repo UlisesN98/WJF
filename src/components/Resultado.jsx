@@ -7,11 +7,20 @@ function Resultado({ respuestaCorrecta, evidencia, onSiguiente }) {
         Respuesta correcta: <strong>{respuestaCorrecta}</strong>
       </p>
 
-      {evidencia.tipo === "imagen" && (
+      {evidencia?.tipo === "imagen" && (
         <img
-          className="respuesta-evidencia"
+          className="respuesta-imagen"
           src={evidencia.src}
           alt="Evidencia"
+        />
+      )}
+
+      {evidencia?.tipo === "youtube" && (
+        <iframe
+          className="respuesta-video"
+          src={`https://www.youtube.com/embed/${evidencia.youtubeId}?start=${evidencia.start}&end=${evidencia.end}&autoplay=1&rel=0&modestbranding=1`}
+          title="Evidencia"
+          allow="autoplay"
         />
       )}
 

@@ -2,9 +2,21 @@
   text-align: center;
 }
 
-.respuesta-evidencia {
+.respuesta-video {
   display: block;
   margin: 20px auto;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+}
+
+.respuesta-imagen {
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 8px;
 }
 
 .boton-siguiente {

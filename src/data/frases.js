@@ -2,43 +2,47 @@ export const frases = [
   {
     texto: "La pelota no se mancha",
     opciones: [
-      "Diego Maradona",
-      "Lionel Messi",
-      "Carlos Bilardo",
-      "Juan Román Riquelme"
+      "Diego Armando Maradona",
+      "Pelé",
+      "Franz Beckenbauer",
+      "Ninguno de los anteriores"
     ],
-    correcta: "Diego Maradona",
+    correcta: "Diego Armando Maradona",
     evidencia: {
-      tipo: "imagen",
-      src: "/la_pelota_no_se_mancha.jpeg"
+      tipo: "youtube",
+      youtubeId: "Q8RvuFyDMog",
+      start: 99,
+      end: 108
     }
   },
   {
     texto: "Un hombre con ideas nuevas es un loco, hasta que sus ideas triunfan",
     opciones: [
-      "Marcelo Bielsa",
       "Pep Guardiola",
-      "José Mourinho",
-      "Carlo Ancelotti"
+      "Marcelo Bielsa",
+      "Carlos Bilardo",
+      "Ninguno de los anteriores"
     ],
-    correcta: "Marcelo Bielsa",
+    correcta: "Ninguno de los anteriores",
     evidencia: {
       tipo: "imagen",
-      src: "/un_hombre_con_ideas_nuevas.jpeg"
+      src: "/baiteo.png"
     }
   },
   {
-    texto: "Yo pienso que por ser guapo, rico y un gran jugador, las personas me tienen envidia",
+    texto: "Yo pienso que por ser rico, por ser guapo, por ser un gran jugador, las personas tienen envidia de mí",
     opciones: [
       "Neymar",
-      "David Beckham",
       "Cristiano Ronaldo",
-      "Vinicius Junior"
+      "Vinicius Junior",
+      "Ninguno de los anteriores"
     ],
     correcta: "Cristiano Ronaldo",
     evidencia: {
-      tipo: "imagen",
-      src: "/guapo_rico_buen_jugador.jpeg"
+      tipo: "youtube",
+      youtubeId: "R1Xfx9clo50",
+      start: 42,
+      end: 50
     }
   }
 ];
