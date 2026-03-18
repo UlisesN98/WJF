@@ -19,6 +19,26 @@
   border-radius: 8px;
 }
 
+.respuesta-cita {
+  text-align: center;
+}
+
+.respuesta-link {
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  color: var(--text-main);
+  text-decoration: underline;
+  text-decoration-color: var(--text-main);
+  text-decoration-thickness: 1px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+
+.respuesta-link:hover {
+  color: var(--football-lightblue);
+  text-decoration-color: var(--football-lightblue);
+}
+
 .boton-siguiente {
   background-color: var(--bg-card);
   display: block;

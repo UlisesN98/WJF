@@ -24,6 +24,19 @@ function Resultado({ respuestaCorrecta, evidencia, onSiguiente }) {
         />
       )}
 
+      {evidencia.tipo === "cita" && (
+        <div className="respuesta-cita">
+          <img
+            className="respuesta-imagen"
+            src={evidencia.img}
+            alt="Evidencia"
+          />
+          <a className="respuesta-link" href={evidencia.url} target="_blank" rel="noopener noreferrer">
+            Fuente
+          </a>
+        </div>
+      )}
+
       <button className="boton-siguiente" onClick={onSiguiente}>
         Siguiente frase
       </button>

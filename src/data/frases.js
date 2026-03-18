@@ -20,7 +20,7 @@ export const frases = [
     opciones: [
       "Pep Guardiola",
       "Marcelo Bielsa",
-      "Carlos Bilardo",
+      "Carlos Salvador Bilardo",
       "Ninguno de los anteriores"
     ],
     correcta: "Ninguno de los anteriores",
@@ -44,5 +44,20 @@ export const frases = [
       start: 42,
       end: 50
     }
-  }
+  },
+  {
+    texto: "El fútbol es tan generoso que evitó que Bilardo se dedicara a la medicina",
+    opciones: [
+      "Ángel Cappa",
+      "Ricardo La Volpe",
+      "César Luis Menotti",
+      "Ninguno de los anteriores"
+    ],
+    correcta: "César Luis Menotti",
+    evidencia: {
+      tipo: "cita",
+      img: "/LDT-1982-Cesar-Luis-Menotti.png",
+      url: "https://www.xenen.com.ar/2015/10/07/el-futbol-es-tan-generoso-que-evito-que-bilardo-se-dedicara-a-la-medicina/"
+    }
+  },
 ];
