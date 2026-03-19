@@ -8,7 +8,7 @@ import { frases } from "../data/frases";
 import "./JuegoFrases.css";
 
 const puntosPorAcierto = 40;
-const tiempoPorPregunta = 15;
+const tiempoPorPregunta = 30;
 
 function JuegoFrases() {
   const {
