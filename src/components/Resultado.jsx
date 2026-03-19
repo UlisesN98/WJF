@@ -1,10 +1,11 @@
 import "./Resultado.css";
+import { getNombrePersonaje } from "../utils/personajes";
 
 function Resultado({ respuestaCorrecta, evidencia, onSiguiente }) {
   return (
     <div>
       <p className="respuesta-correcta">
-        Respuesta correcta: <strong>{respuestaCorrecta}</strong>
+        Respuesta correcta: <strong>{getNombrePersonaje(respuestaCorrecta)}</strong>
       </p>
 
       {evidencia?.tipo === "imagen" && (

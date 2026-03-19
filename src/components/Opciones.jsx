@@ -1,14 +1,15 @@
 import "./Opciones.css";
+import { getNombrePersonaje } from "../utils/personajes";
 
 function Opciones({ opciones, onElegir }) {
   return (
     <div className="opciones">
-      {opciones.map((opcion) => (
+      {opciones.map((opcionId) => (
         <button
-          key={opcion}
-          onClick={() => onElegir(opcion)}
+          key={opcionId}
+          onClick={() => onElegir(opcionId)}
         >
-          {opcion}
+          {getNombrePersonaje(opcionId)}
         </button>
       ))}
     </div>
