@@ -23,5 +23,15 @@ export const CITA = {
     tipo: "cita",
     img: "/maradona_bochini.png",
     url: "https://www.xenen.com.ar/2017/05/02/pase-maestro-lo-estabamos-esperando/"
+  },
+  zubeldia: {
+    tipo: "cita",
+    img: "/zubeldia.png",
+    url: "https://www.laprensa.com.ar/A-la-gloria-no-se-llega-por-un-camino-de-rosas-469628.note.aspx"
+  },
+  gorosito: { 
+    tipo: "cita", 
+    img: "/gorosito_tweet.png",
+    url: "https://x.com/pipogorosito10/status/1009887991723188224?s=20"
   }
 };

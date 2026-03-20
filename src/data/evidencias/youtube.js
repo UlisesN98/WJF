@@ -7,5 +7,8 @@ export const YOUTUBE = {
   gatti: { tipo: "youtube", youtubeId: "0TO5cUMwhvU", start: 11, end: 24 },
   chicharito: { tipo: "youtube", youtubeId: "7iJJYG7MrpQ", start: 0, end: 15 },
   guillermo: { tipo: "youtube", youtubeId: "hf3SAQS89ws", start: 4, end: 18 },
-  guillermo_2: { tipo: "youtube", youtubeId: "gMw1RZPok4I", start: 90, end: 96 }
+  guillermo_2: { tipo: "youtube", youtubeId: "gMw1RZPok4I", start: 90, end: 96 },
+  luis_zubeldia: { tipo: "youtube", youtubeId: "iB5x3dcrOmE", start: 19, end: 27 },
+  guillermo_3: { tipo: "youtube", youtubeId: "lR0TSJwcV9A", start: 26, end: 47 },
+  heinze: { tipo: "youtube", youtubeId: "susJP9sMj4o", start: 68, end: 117 },
 };
