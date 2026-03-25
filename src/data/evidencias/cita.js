@@ -33,5 +33,20 @@ export const CITA = {
     tipo: "cita", 
     img: "/gorosito_tweet.png",
     url: "https://x.com/pipogorosito10/status/1009887991723188224?s=20"
+  },
+  almeyda: { 
+    tipo: "cita", 
+    img: "/almeyda.png",
+    url: "https://www.ole.com.ar/river-plate/futbol/parece-campeonato-italiano_0_SkSx-lJgj3g.html"
+  },
+  bianchi: {
+    tipo: "cita", 
+    img: "/bianchi.png",
+    url: "https://www.lavoz.com.ar/deportes/futbol/bianchi-la-broma-sobre-el-color-de-ribair-y-lo-que-dijo-sobre-maria-teresa/"
+  },
+  wanchope: {
+    tipo: "cita", 
+    img: "/wancho.png",
+    url: "https://www.dobleamarilla.com.ar/liga-/insolito--wanchope-abila-se-cruzo-con-un-hincha-de-colon-y-lo-invito-a-pelear-_a652692b05e32bfb219a8c010"
   }
 };

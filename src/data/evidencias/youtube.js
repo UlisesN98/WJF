@@ -11,4 +11,13 @@ export const YOUTUBE = {
   luis_zubeldia: { tipo: "youtube", youtubeId: "iB5x3dcrOmE", start: 19, end: 27 },
   guillermo_3: { tipo: "youtube", youtubeId: "lR0TSJwcV9A", start: 26, end: 47 },
   heinze: { tipo: "youtube", youtubeId: "susJP9sMj4o", start: 68, end: 117 },
+  osella: { tipo: "youtube", youtubeId: "Zf97YQAkAtI", start: 4, end: 30 },
+  falcioni: { tipo: "youtube", youtubeId: "7qMURmjjBqg", start: 0, end: 13 },
+  messi: { tipo: "youtube", youtubeId: "TvTJxkmYD_w", start: 24, end: 32 },
+  riquelme: { tipo: "youtube", youtubeId: "feGC3gv8LmI", start: 48, end: 67 },
+  gallardo: { tipo: "youtube", youtubeId: "wLAlWEwBkqQ", start: 0, end: 33 },
+  bianchi: { tipo: "youtube", youtubeId: "Ppa0h-eChz0", start: 156, end: 169 },
+  maradona_3: { tipo: "youtube", youtubeId: "gy99OgXQKKU", start: 26, end: 56 },
+  ramon_diaz: { tipo: "youtube", youtubeId: "dwTllYS0Vmc", start: 0, end: 11 },
+  messi_2: { tipo: "youtube", youtubeId: "2zfzaoioxQg", start: 0, end: 9 }
 };

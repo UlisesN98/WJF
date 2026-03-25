@@ -6,4 +6,5 @@
   background: var(--bg-card);
   border-left: 4px solid var(--football-lightblue);
   border-radius: 8px;
+  white-space: pre-line;
 }
