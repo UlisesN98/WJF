@@ -1,15 +1,5 @@
 import { useState, useEffect } from "react";
-
-function mezclarArray(array) {
-  const copia = [...array];
-
-  for (let i = copia.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copia[i], copia[j]] = [copia[j], copia[i]];
-  }
-
-  return copia;
-}
+import { mezclarArray } from "../utils/array";
 
 function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPorPregunta = 10, limitePreguntas = 5 }) {
   const [indice, setIndice] = useState(0);

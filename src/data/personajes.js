@@ -62,7 +62,7 @@ export const PERSONAJES = {
   montenegro: { nombre: "Daniel 'Rolfi' Montenegro" },
   mourinho: { nombre: "José Mourinho" },
   neymar: { nombre: "Neymar" },
-  ninguno: { nombre: "Ninguno de los anteriores" },
+  ninguno: { nombre: "Ninguna de estas opciones" },
   osella: { nombre: "Diego Osella" },
   osvaldo: { nombre: "Daniel Osvaldo" },
   pabon: { nombre: "Dorlan Pabón" },
