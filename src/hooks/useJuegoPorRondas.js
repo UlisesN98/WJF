@@ -1,6 +1,17 @@
 import { useState, useEffect } from "react";
 
-function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPorPregunta = 10 }) {
+function mezclarArray(array) {
+  const copia = [...array];
+
+  for (let i = copia.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copia[i], copia[j]] = [copia[j], copia[i]];
+  }
+
+  return copia;
+}
+
+function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPorPregunta = 10, limitePreguntas = 5 }) {
   const [indice, setIndice] = useState(0);
   const [seleccion, setSeleccion] = useState(null);
   const [fase, setFase] = useState("pregunta");
@@ -8,8 +19,15 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
   const [tiempoRestante, setTiempoRestante] = useState(tiempoPorPregunta);
   const [puntajeRonda, setPuntajeRonda] = useState(0);
   const [aciertos, setAciertos] = useState(0);
+  const [rondas, setRondas] = useState([]);
 
-  const actual = datos[indice];
+  const actual = rondas[indice];
+
+  useEffect(() => {
+    const mezcladas = mezclarArray(datos);
+    const seleccionadas = mezcladas.slice(0, limitePreguntas);
+    setRondas(seleccionadas);
+  }, [datos, limitePreguntas]);
 
   useEffect(() => {
 
@@ -60,7 +78,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
   }
 
   function siguiente() {
-    if (indice + 1 >= datos.length) {
+    if (indice + 1 >= rondas.length) {
       setFase("fin");
       return;
     }
@@ -73,6 +91,10 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
   }
 
   function reiniciar() {
+    const mezcladas = mezclarArray(datos);
+    const seleccionadas = mezcladas.slice(0, limitePreguntas);
+
+    setRondas(seleccionadas);
     setIndice(0);
     setSeleccion(null);
     setFase("pregunta");
@@ -93,7 +115,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     elegirOpcion,
     siguiente,
     reiniciar,
-    total: datos.length
+    total: rondas.length
   };
 }
 
