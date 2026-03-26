@@ -8,3 +8,8 @@ export function mezclarArray(array) {
 
   return copia;
 }
+
+export function sample(array, cantidad) {
+  const mezclado = mezclarArray(array);
+  return mezclado.slice(0, cantidad);
+}

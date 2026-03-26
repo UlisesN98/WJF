@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { mezclarArray } from "../utils/array";
+import { seleccionarFrases } from "../utils/frases";
 
 function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPorPregunta = 10, limitePreguntas = 5 }) {
   const [indice, setIndice] = useState(0);
@@ -14,8 +14,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
   const actual = rondas[indice];
 
   useEffect(() => {
-    const mezcladas = mezclarArray(datos);
-    const seleccionadas = mezcladas.slice(0, limitePreguntas);
+    const seleccionadas = seleccionarFrases(datos, limitePreguntas);
     setRondas(seleccionadas);
   }, [datos, limitePreguntas]);
 
@@ -81,8 +80,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
   }
 
   function reiniciar() {
-    const mezcladas = mezclarArray(datos);
-    const seleccionadas = mezcladas.slice(0, limitePreguntas);
+    const seleccionadas = seleccionarFrases(datos, limitePreguntas);
 
     setRondas(seleccionadas);
     setIndice(0);

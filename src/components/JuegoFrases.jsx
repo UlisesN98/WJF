@@ -4,7 +4,7 @@ import Resultado from "./Resultado";
 import FinJuego from "./FinJuego";
 import ResultadoSimbolo from "./ResultadoSimbolo";
 import useJuegoPorRondas from "../hooks/useJuegoPorRondas";
-import { frases } from "../data/frases";
+import { frases } from "../data/frases/index";
 import "./JuegoFrases.css";
 
 const puntosPorAcierto = 40;
