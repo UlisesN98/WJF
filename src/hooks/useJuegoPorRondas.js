@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { seleccionarFrases } from "../utils/frases";
 
-function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPorPregunta = 10, limitePreguntas = 5 }) {
+function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPorPregunta = 10 }) {
   const [indice, setIndice] = useState(0);
   const [seleccion, setSeleccion] = useState(null);
   const [fase, setFase] = useState("pregunta");
@@ -9,14 +8,9 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
   const [tiempoRestante, setTiempoRestante] = useState(tiempoPorPregunta);
   const [puntajeRonda, setPuntajeRonda] = useState(0);
   const [aciertos, setAciertos] = useState(0);
-  const [rondas, setRondas] = useState([]);
+  const [rondas, setRondas] = useState(datos);
 
   const actual = rondas[indice];
-
-  useEffect(() => {
-    const seleccionadas = seleccionarFrases(datos, limitePreguntas);
-    setRondas(seleccionadas);
-  }, [datos, limitePreguntas]);
 
   useEffect(() => {
 
@@ -79,10 +73,8 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     setPuntajeRonda(0);
   }
 
-  function reiniciar() {
-    const seleccionadas = seleccionarFrases(datos, limitePreguntas);
-
-    setRondas(seleccionadas);
+  function reiniciar(nuevosDatos) {
+    setRondas(nuevosDatos);
     setIndice(0);
     setSeleccion(null);
     setFase("pregunta");

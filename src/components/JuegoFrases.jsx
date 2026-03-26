@@ -5,6 +5,7 @@ import FinJuego from "./FinJuego";
 import ResultadoSimbolo from "./ResultadoSimbolo";
 import useJuegoPorRondas from "../hooks/useJuegoPorRondas";
 import { frases } from "../data/frases/index";
+import { seleccionarFrases } from "../utils/frases";
 import "./JuegoFrases.css";
 
 const puntosPorAcierto = 40;
@@ -25,11 +26,10 @@ function JuegoFrases() {
     reiniciar,
     total
   } = useJuegoPorRondas({ 
-    datos: frases, 
+    datos: seleccionarFrases(frases, limitePreguntas), 
     esCorrecta: (frase, opcion) => opcion === frase.correcta,
     puntosPorAcierto,
-    tiempoPorPregunta,
-    limitePreguntas
+    tiempoPorPregunta
   });
 
   if (!frase) return null;
@@ -40,7 +40,7 @@ function JuegoFrases() {
         puntaje={puntaje}
         aciertos={aciertos}
         total={total}
-        onReiniciar={reiniciar}
+        onReiniciar={() => reiniciar(seleccionarFrases(frases, limitePreguntas))}
       />
     );
   }
