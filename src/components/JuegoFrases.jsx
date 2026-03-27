@@ -1,13 +1,12 @@
-import EstadoJuego from "./EstadoJuego";
-import Pregunta from "./Pregunta";
-import Opciones from "./Opciones";
-import Resultado from "./Resultado";
-import FinJuego from "./FinJuego";
-import ResultadoSimbolo from "./ResultadoSimbolo";
+import EstadoJuego from "./juegos/EstadoJuego";
+import Pregunta from "./juegos/Pregunta";
+import Opciones from "./juegos/Opciones";
+import Resultado from "./juegos/Resultado";
+import FinJuego from "./juegos/FinJuego";
+import ResultadoSimbolo from "./juegos/ResultadoSimbolo";
 import useJuegoPorRondas from "../hooks/useJuegoPorRondas";
 import { frases } from "../data/frases/index";
 import { seleccionarFrases } from "../utils/frases";
-import "./JuegoFrases.css";
 
 const puntosPorAcierto = 18;
 const tiempoPorPregunta = 18;
@@ -44,7 +43,9 @@ function JuegoFrases() {
     return (
       <FinJuego
         puntaje={puntaje}
+        puntosPorAcierto={puntosPorAcierto}
         aciertos={aciertos}
+        incorrectos={incorrectos}
         total={total}
         onReiniciar={() => reiniciar(seleccionarFrases(frases, limitePreguntas))}
       />

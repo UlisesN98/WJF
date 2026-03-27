@@ -1,0 +1,9 @@
+.respuesta-correcta {
+  text-align: center;
+}
+
+.boton-siguiente {
+  background-color: var(--bg-card);
+  display: block;
+  margin: auto;
+}

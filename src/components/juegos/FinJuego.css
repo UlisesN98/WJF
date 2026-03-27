@@ -1,0 +1,34 @@
+.fin-juego {
+  text-align: center;
+  font-weight: bold;
+}
+
+.card-resultados {
+  display: inline-block;
+  background-color: var(--bg-card);
+  padding: 20px;
+  width: 300px;
+  border-radius: 12px;
+}
+
+.fin-juego h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.fin-juego h3 {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.fin-juego p {
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.reiniciar-btn {
+  background-color: var(--bg-card);
+  display: block;
+  margin: 20px auto;
+}

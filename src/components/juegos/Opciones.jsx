@@ -1,6 +1,6 @@
 import "./Opciones.css";
-import { getNombrePersonaje } from "../utils/personajes";
-import { mezclarArray } from "../utils/array";
+import { getNombrePersonaje } from "../../utils/personajes";
+import { mezclarArray } from "../../utils/array";
 import { useMemo } from "react";
 
 function Opciones({ opciones, onElegir }) {
