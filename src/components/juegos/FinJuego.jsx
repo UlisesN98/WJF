@@ -1,36 +1,48 @@
 import "./FinJuego.css";
+import EvidenciaYoutube from "./evidencias/EvidenciaYoutube";
+import { youtubeFinJuego } from "../../data/frases/finJuego";
 
 function FinJuego({ puntaje, puntosPorAcierto, aciertos, incorrectos, total, onReiniciar }) {
-  let mensaje;
+  let evidencia;
   let maximoPuntaje = puntosPorAcierto * total;
+  let noJugadas = total - (aciertos + incorrectos);
+  
   if (puntaje > maximoPuntaje * 0.75) {
-    mensaje = "Tengo una capacidad hermano, tremenda. ¡Yo inventé esto!";
+    evidencia = youtubeFinJuego["mas_de_75"];
   } else if (puntaje > maximoPuntaje * 0.50) {
-    mensaje = "Siempre vamo' al frente y ganamos, a otra cosa";
+    evidencia = youtubeFinJuego["mas_de_50"];
   } else if (puntaje > maximoPuntaje * 0.25) {
-    mensaje = "¡Puedes mejorar!";
+    evidencia = youtubeFinJuego["menos_de_50"];
   } else {
-    mensaje = "¿Podés ser tan pelutudo viejo?";
+    evidencia = youtubeFinJuego["menos_de_25"];
   }
 
   return (
     <div className="fin-juego">
       <div className="card-resultados">
         <h2>
-          {mensaje}
+          Resultados finales
         </h2>
         <h3>
-          Puntaje final: {puntaje}
+          Puntaje: {puntaje}
+        </h3>
+        <h3>
+          {Math.round((puntaje / maximoPuntaje) * 100)}% de efectividad
         </h3>
         <p>
-          Correctas: {aciertos}
+          {aciertos} correctas 
         </p>
         <p>
-          Incorrectas: {incorrectos}
+          {incorrectos} incorrectas 
         </p>
-        <p>
-          No jugadas: {total - (aciertos + incorrectos)}
-        </p>
+        { noJugadas > 0 && (
+          <p>
+            {total - (aciertos + incorrectos)} no jugadas
+          </p>
+        )}
+        <div>
+          <EvidenciaYoutube evidencia={evidencia} />
+        </div>
       </div>
       
       <button onClick={onReiniciar} className="reiniciar-btn">

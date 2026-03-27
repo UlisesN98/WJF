@@ -19,5 +19,8 @@ export const YOUTUBE = {
   bianchi: { tipo: "youtube", youtubeId: "Ppa0h-eChz0", start: 156, end: 169 },
   maradona_3: { tipo: "youtube", youtubeId: "gy99OgXQKKU", start: 26, end: 56 },
   ramon_diaz: { tipo: "youtube", youtubeId: "dwTllYS0Vmc", start: 0, end: 11 },
-  messi_2: { tipo: "youtube", youtubeId: "2zfzaoioxQg", start: 0, end: 9 }
+  messi_2: { tipo: "youtube", youtubeId: "2zfzaoioxQg", start: 0, end: 9 },
+  sanfilipo: { tipo: "youtube", youtubeId: "l_BJ-UGwuq4", start: 6, end: 12 },
+  maradona_4: { tipo: "youtube", youtubeId: "3IA0P6JPyoA", start: 19, end: 24 },
+  basile: { tipo: "youtube", youtubeId: "LPaUwMmDkX4", start: 14, end: 21 },
 };

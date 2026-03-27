@@ -1,34 +1,35 @@
 .fin-juego {
-  text-align: center;
-  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .card-resultados {
-  display: inline-block;
   background-color: var(--bg-card);
   padding: 20px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .fin-juego h2 {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  text-align: center;
+  margin: 0;
 }
 
 .fin-juego h3 {
-  margin-top: 20px;
-  margin-bottom: 0px;
+  margin: 0;
 }
 
 .fin-juego p {
-  display: block;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin: 0;
 }
 
 .reiniciar-btn {
   background-color: var(--bg-card);
-  display: block;
-  margin: 20px auto;
 }
