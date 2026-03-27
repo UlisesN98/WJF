@@ -10,6 +10,11 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
   const [aciertos, setAciertos] = useState(0);
   const [rondas, setRondas] = useState(datos);
 
+  useEffect(() => {
+    setRondas(datos);
+    setIndice(0);
+  }, [datos]);
+
   const actual = rondas[indice];
 
   useEffect(() => {
@@ -41,6 +46,8 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     setSeleccion(opcion);
 
     let puntosObtenidos = 0;
+
+    if (!actual) return;
 
     if (esCorrecta(actual, opcion)) {
       puntosObtenidos = Math.max(

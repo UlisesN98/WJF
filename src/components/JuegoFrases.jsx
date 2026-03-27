@@ -4,8 +4,9 @@ import Resultado from "./Resultado";
 import FinJuego from "./FinJuego";
 import ResultadoSimbolo from "./ResultadoSimbolo";
 import useJuegoPorRondas from "../hooks/useJuegoPorRondas";
-import { frases } from "../data/frases/index";
+import { obtenerFrases } from "../api/frases";
 import { seleccionarFrases } from "../utils/frases";
+import { useState, useEffect } from "react";
 import "./JuegoFrases.css";
 
 const puntosPorAcierto = 40;
@@ -13,6 +14,16 @@ const tiempoPorPregunta = 30;
 const limitePreguntas = 10;
 
 function JuegoFrases() {
+  const [frases, setFrases] = useState(null);
+
+  useEffect(() => {
+    obtenerFrases().then((data) => {
+      setFrases(seleccionarFrases(data, limitePreguntas));
+    });
+  }, []);
+
+  const datosIniciales = frases ?? [];
+
   const {
     actual: frase,
     fase,
@@ -26,11 +37,13 @@ function JuegoFrases() {
     reiniciar,
     total
   } = useJuegoPorRondas({ 
-    datos: seleccionarFrases(frases, limitePreguntas), 
+    datos: datosIniciales,
     esCorrecta: (frase, opcion) => opcion === frase.correcta,
     puntosPorAcierto,
     tiempoPorPregunta
   });
+
+  if (!frases || !frases.length) return <div>Cargando...</div>;
 
   if (!frase) return null;
 
@@ -40,7 +53,11 @@ function JuegoFrases() {
         puntaje={puntaje}
         aciertos={aciertos}
         total={total}
-        onReiniciar={() => reiniciar(seleccionarFrases(frases, limitePreguntas))}
+        onReiniciar={() => {
+            const nuevasFrases = seleccionarFrases(frases, limitePreguntas);
+            reiniciar(nuevasFrases);
+            setFrases(nuevasFrases);
+        }}
       />
     );
   }
