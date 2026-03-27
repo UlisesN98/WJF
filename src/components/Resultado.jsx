@@ -1,7 +1,7 @@
 import "./Resultado.css";
 import { getNombrePersonaje } from "../utils/personajes";
 
-function Resultado({ respuestaCorrecta, evidencia, onSiguiente }) {
+function Resultado({ respuestaCorrecta, evidencia, onSiguiente, esUltima }) {
   return (
     <div>
       <p className="respuesta-correcta">
@@ -39,7 +39,7 @@ function Resultado({ respuestaCorrecta, evidencia, onSiguiente }) {
       )}
 
       <button className="boton-siguiente" onClick={onSiguiente}>
-        Siguiente frase
+        {esUltima ? "Finalizar partida" : "Siguiente frase"}
       </button>
     </div>
   );

@@ -22,6 +22,7 @@ function JuegoFrases() {
     puntajeRonda,
     tiempoRestante,
     aciertos,
+    esUltima,
     elegirOpcion,
     siguiente,
     reiniciar,
@@ -87,6 +88,7 @@ function JuegoFrases() {
           respuestaCorrecta={frase.correcta}
           evidencia={frase.evidencia}
           onSiguiente={siguiente}
+          esUltima={esUltima}
         />
       )}
     </div>

@@ -13,6 +13,10 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
 
   const actual = rondas[indice];
 
+  const esUltimaPregunta = indice + 1 >= rondas.length;
+  const excedioErrores = incorrectos >= maxIncorrectos;
+  const esUltima = esUltimaPregunta || excedioErrores;
+
   useEffect(() => {
     if (fase !== "pregunta") return;
 
@@ -91,6 +95,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     puntajeRonda,
     tiempoRestante,
     aciertos,
+    esUltima,
     elegirOpcion,
     siguiente,
     reiniciar,
