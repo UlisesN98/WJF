@@ -1,3 +1,4 @@
+import EstadoJuego from "./EstadoJuego";
 import Pregunta from "./Pregunta";
 import Opciones from "./Opciones";
 import Resultado from "./Resultado";
@@ -52,31 +53,14 @@ function JuegoFrases() {
 
   return (
     <div>
-      <div className="info-superior">
-        <p className="puntaje">
-          Puntaje: {fase === "feedback" && puntajeRonda > 0
-            ? puntaje - puntajeRonda
-            : puntaje
-          }
-          {fase === "feedback" && puntajeRonda > 0 && (
-            <span className="puntaje-obtenido"> +{puntajeRonda}</span>
-          )}
-        </p>
-        {fase === "pregunta" && (
-          <p className={`tiempo ${tiempoRestante <= 5 ? "casi-agotado" : ""}`}>
-            Tiempo: {tiempoRestante} s
-          </p>
-        )}
-        <p className="incorrectos">
-          Incorrectas: {fase === "feedback" && ultimaIncorrecta
-            ? incorrectos - 1
-            : incorrectos
-          }
-          {fase === "feedback" && ultimaIncorrecta && (
-            <span className="incorrecto-obtenido"> +1</span>
-          )}
-        </p>
-      </div>
+      <EstadoJuego
+        fase={fase}
+        puntaje={puntaje}
+        puntajeRonda={puntajeRonda}
+        tiempoRestante={tiempoRestante}
+        incorrectos={incorrectos}
+        ultimaIncorrecta={ultimaIncorrecta}
+      />
 
       {fase === "pregunta" && (
         <>

@@ -1,8 +1,8 @@
-.info-superior {
-  display: flex;               /* activa Flexbox solo aquí */
-  justify-content: center;     /* centra horizontalmente ambos elementos */
-  gap: 20px;                   /* espacio entre puntaje y tiempo */
-  margin-bottom: 20px;         /* separación con el resto del contenido */
+.estado-juego {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
   font-size: 1.2rem;
   font-weight: bold;
 }
