@@ -11,6 +11,7 @@ import "./JuegoFrases.css";
 const puntosPorAcierto = 18;
 const tiempoPorPregunta = 18;
 const limitePreguntas = 18;
+const maxIncorrectos = 3;
 
 function JuegoFrases() {
   const {
@@ -29,7 +30,8 @@ function JuegoFrases() {
     datos: seleccionarFrases(frases, limitePreguntas), 
     esCorrecta: (frase, opcion) => opcion === frase.correcta,
     puntosPorAcierto,
-    tiempoPorPregunta
+    tiempoPorPregunta,
+    maxIncorrectos
   });
 
   if (!frase) return null;

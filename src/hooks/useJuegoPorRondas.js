@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPorPregunta = 10 }) {
+function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPorPregunta = 10, maxIncorrectos = Infinity }) {
   const [indice, setIndice] = useState(0);
   const [seleccion, setSeleccion] = useState(null);
   const [fase, setFase] = useState("pregunta");
@@ -9,32 +9,25 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
   const [puntajeRonda, setPuntajeRonda] = useState(0);
   const [aciertos, setAciertos] = useState(0);
   const [rondas, setRondas] = useState(datos);
+  const [incorrectos, setIncorrectos] = useState(0);
 
   const actual = rondas[indice];
 
   useEffect(() => {
-
     if (fase !== "pregunta") return;
 
     const intervalo = setInterval(() => {
-
       setTiempoRestante(prev => {
-
         if (prev <= 1) {
           clearInterval(intervalo);
-
           elegirOpcion("timeout");
-
           return 0;
         }
-
         return prev - 1;
       });
-
     }, 1000);
 
     return () => clearInterval(intervalo);
-
   }, [fase, indice]);
 
   function elegirOpcion(opcion) {
@@ -49,19 +42,24 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
       );
       setPuntaje(prev => prev + puntosObtenidos);
       setAciertos(prev => prev + 1);
+    } else {
+      setIncorrectos(incorrectos + 1);
     }
 
-    setPuntajeRonda(puntosObtenidos); 
-
+    setPuntajeRonda(puntosObtenidos);
     setFase("feedback");
 
     setTimeout(() => {
-      setFase("explicacion");
-    }, 1000); // 1 segundo
+      if (incorrectos >= maxIncorrectos) {
+        setFase("fin");
+      } else {
+        setFase("explicacion");
+      }
+    }, 1000);
   }
 
   function siguiente() {
-    if (indice + 1 >= rondas.length) {
+    if (indice + 1 >= rondas.length || incorrectos >= maxIncorrectos) {
       setFase("fin");
       return;
     }
@@ -82,6 +80,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     setTiempoRestante(tiempoPorPregunta);
     setPuntajeRonda(0);
     setAciertos(0);
+    setIncorrectos(0);
   }
 
   return {
