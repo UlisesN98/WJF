@@ -8,9 +8,9 @@ import { frases } from "../data/frases/index";
 import { seleccionarFrases } from "../utils/frases";
 import "./JuegoFrases.css";
 
-const puntosPorAcierto = 40;
-const tiempoPorPregunta = 30;
-const limitePreguntas = 10;
+const puntosPorAcierto = 18;
+const tiempoPorPregunta = 18;
+const limitePreguntas = 18;
 
 function JuegoFrases() {
   const {
