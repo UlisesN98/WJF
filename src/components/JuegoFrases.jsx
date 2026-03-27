@@ -22,6 +22,8 @@ function JuegoFrases() {
     puntajeRonda,
     tiempoRestante,
     aciertos,
+    incorrectos,
+    ultimaIncorrecta,
     esUltima,
     elegirOpcion,
     siguiente,
@@ -65,11 +67,19 @@ function JuegoFrases() {
             Tiempo: {tiempoRestante} s
           </p>
         )}
+        <p className="incorrectos">
+          Incorrectas: {fase === "feedback" && ultimaIncorrecta
+            ? incorrectos - 1
+            : incorrectos
+          }
+          {fase === "feedback" && ultimaIncorrecta && (
+            <span className="incorrecto-obtenido"> +1</span>
+          )}
+        </p>
       </div>
 
       {fase === "pregunta" && (
         <>
-
           <h2>¿Quién dijo esta frase?</h2>
           <Pregunta texto={frase.texto} />
           <Opciones opciones={frase.opciones} onElegir={elegirOpcion} />

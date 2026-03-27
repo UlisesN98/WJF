@@ -10,6 +10,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
   const [aciertos, setAciertos] = useState(0);
   const [rondas, setRondas] = useState(datos);
   const [incorrectos, setIncorrectos] = useState(0);
+  const [ultimaIncorrecta, setUltimaIncorrecta] = useState(false);
 
   const actual = rondas[indice];
 
@@ -46,8 +47,10 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
       );
       setPuntaje(prev => prev + puntosObtenidos);
       setAciertos(prev => prev + 1);
+      setUltimaIncorrecta(false);
     } else {
       setIncorrectos(incorrectos + 1);
+      setUltimaIncorrecta(true);
     }
 
     setPuntajeRonda(puntosObtenidos);
@@ -95,6 +98,8 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     puntajeRonda,
     tiempoRestante,
     aciertos,
+    incorrectos,
+    ultimaIncorrecta,
     esUltima,
     elegirOpcion,
     siguiente,

@@ -7,7 +7,7 @@
   font-weight: bold;
 }
 
-.puntaje, .tiempo {
+.puntaje, .tiempo, .incorrectos {
   margin: 0;
   padding: 5px 10px;
   background-color: var(--bg-card);
@@ -24,11 +24,18 @@
   color: var(--warning);
 }
 
-.puntaje-obtenido {
-  color: var(--success);
+.puntaje-obtenido, .incorrecto-obtenido {
   font-weight: bold;
   margin-left: 1px;
   animation: aparecer 0.8s ease;
+}
+
+.puntaje-obtenido {
+  color: var(--success);
+}
+
+.incorrecto-obtenido {
+  color: var(--error);
 }
 
 @keyframes aparecer {
