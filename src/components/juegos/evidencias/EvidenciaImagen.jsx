@@ -5,7 +5,7 @@ function EvidenciaImagen({ evidencia }) {
         <img
           className="respuesta-imagen"
           src={evidencia.src}
-          alt="Evidencia"
+          alt="No carga la evidencia che"
         />
     );
 }

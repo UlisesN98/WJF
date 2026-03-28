@@ -23,7 +23,7 @@ function Resultado({ respuestaCorrecta, evidencia, onSiguiente, esUltima }) {
         <EvidenciaCita evidencia={evidencia} />
       )}
 
-      <button className="boton-siguiente" onClick={onSiguiente}>
+      <button className="boton-accion" onClick={onSiguiente}>
         {esUltima ? "Finalizar partida" : "Siguiente frase"}
       </button>
     </div>

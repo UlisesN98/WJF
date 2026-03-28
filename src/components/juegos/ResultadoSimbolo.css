@@ -1,7 +1,8 @@
 .feedback {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  animation: aparecer 0.3s ease;
 }
 
 .feedback.correcto {
@@ -10,4 +11,9 @@
 
 .feedback.incorrecto {
   color: var(--error);
+}
+
+@keyframes aparecer {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }

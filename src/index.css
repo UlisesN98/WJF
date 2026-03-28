@@ -98,3 +98,20 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.boton-accion {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-main);
+  border-radius: 8px;
+  color: var(--text-main);
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  transition: background 0.2s;
+}
+
+.boton-accion:hover {
+  background: var(--bg-hover);
+}

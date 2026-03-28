@@ -5,6 +5,7 @@
   max-width: 480px;
   aspect-ratio: 16 / 9;
   border-radius: 8px;
+  border: none;
 }
 
 .respuesta-imagen {
@@ -21,7 +22,6 @@
 
 .respuesta-link {
   display: inline-block;
-  margin-top: 0px;
   margin-bottom: 20px;
   color: var(--text-main);
   text-decoration: underline;

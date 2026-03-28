@@ -45,7 +45,7 @@ function FinJuego({ puntaje, puntosPorAcierto, aciertos, incorrectos, total, onR
         </div>
       </div>
       
-      <button onClick={onReiniciar} className="reiniciar-btn">
+      <button onClick={onReiniciar} className="boton-accion">
         Reiniciar partida
       </button>
     </div>
