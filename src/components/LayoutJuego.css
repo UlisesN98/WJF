@@ -11,11 +11,20 @@
 .layout-header {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
   gap: 15px;
   margin-bottom: 20px;
+  padding: 12px 16px;
   background-color: var(--bg-header);
   border-radius: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.layout-header h1 {
+  margin: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .layout-contenido {

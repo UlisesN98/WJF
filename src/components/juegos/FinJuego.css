@@ -1,0 +1,41 @@
+.fin-juego {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.card-resultados {
+  background-color: var(--bg-card);
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fin-juego h2 {
+  text-align: center;
+  margin: 0;
+}
+
+.fin-juego h3 {
+  margin: 0;
+}
+
+.fin-juego p {
+  margin: 0;
+}
+
+.resultado-video {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  border: none;
+}

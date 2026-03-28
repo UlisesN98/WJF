@@ -1,41 +1,44 @@
 import { useState, useEffect } from "react";
 
-function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPorPregunta = 10 }) {
+function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPorPregunta = 10, maxIncorrectos = Infinity }) {
   const [indice, setIndice] = useState(0);
   const [seleccion, setSeleccion] = useState(null);
-  const [fase, setFase] = useState("pregunta");
+  const [fase, setFase] = useState("introduccion");
   const [puntaje, setPuntaje] = useState(0);
   const [tiempoRestante, setTiempoRestante] = useState(tiempoPorPregunta);
   const [puntajeRonda, setPuntajeRonda] = useState(0);
   const [aciertos, setAciertos] = useState(0);
   const [rondas, setRondas] = useState(datos);
+  const [incorrectos, setIncorrectos] = useState(0);
+  const [ultimaIncorrecta, setUltimaIncorrecta] = useState(false);
 
   const actual = rondas[indice];
 
-  useEffect(() => {
+  const esUltimaPregunta = indice + 1 >= rondas.length;
+  const excedioErrores = incorrectos >= maxIncorrectos;
+  const esUltima = esUltimaPregunta || excedioErrores;
 
+  useEffect(() => {
     if (fase !== "pregunta") return;
 
     const intervalo = setInterval(() => {
-
       setTiempoRestante(prev => {
-
         if (prev <= 1) {
           clearInterval(intervalo);
-
           elegirOpcion("timeout");
-
           return 0;
         }
-
         return prev - 1;
       });
-
     }, 1000);
 
     return () => clearInterval(intervalo);
-
   }, [fase, indice]);
+
+  function comenzar() {
+    setFase("pregunta");
+    setTiempoRestante(tiempoPorPregunta);
+  }
 
   function elegirOpcion(opcion) {
     setSeleccion(opcion);
@@ -49,19 +52,26 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
       );
       setPuntaje(prev => prev + puntosObtenidos);
       setAciertos(prev => prev + 1);
+      setUltimaIncorrecta(false);
+    } else {
+      setIncorrectos(incorrectos + 1);
+      setUltimaIncorrecta(true);
     }
 
-    setPuntajeRonda(puntosObtenidos); 
-
+    setPuntajeRonda(puntosObtenidos);
     setFase("feedback");
 
     setTimeout(() => {
-      setFase("explicacion");
-    }, 1000); // 1 segundo
+      if (incorrectos >= maxIncorrectos) {
+        setFase("fin");
+      } else {
+        setFase("explicacion");
+      }
+    }, 1000);
   }
 
   function siguiente() {
-    if (indice + 1 >= rondas.length) {
+    if (indice + 1 >= rondas.length || incorrectos >= maxIncorrectos) {
       setFase("fin");
       return;
     }
@@ -77,11 +87,12 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     setRondas(nuevosDatos);
     setIndice(0);
     setSeleccion(null);
-    setFase("pregunta");
+    setFase("introduccion");
     setPuntaje(0);
     setTiempoRestante(tiempoPorPregunta);
     setPuntajeRonda(0);
     setAciertos(0);
+    setIncorrectos(0);
   }
 
   return {
@@ -92,6 +103,10 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     puntajeRonda,
     tiempoRestante,
     aciertos,
+    incorrectos,
+    ultimaIncorrecta,
+    esUltima,
+    comenzar,
     elegirOpcion,
     siguiente,
     reiniciar,

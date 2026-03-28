@@ -1,16 +1,18 @@
-import Pregunta from "./Pregunta";
-import Opciones from "./Opciones";
-import Resultado from "./Resultado";
-import FinJuego from "./FinJuego";
-import ResultadoSimbolo from "./ResultadoSimbolo";
+import Introduccion from "./juegos/Introduccion";
+import EstadoJuego from "./juegos/EstadoJuego";
+import Pregunta from "./juegos/Pregunta";
+import Opciones from "./juegos/Opciones";
+import Resultado from "./juegos/Resultado";
+import FinJuego from "./juegos/FinJuego";
+import ResultadoSimbolo from "./juegos/ResultadoSimbolo";
 import useJuegoPorRondas from "../hooks/useJuegoPorRondas";
 import { frases } from "../data/frases/index";
 import { seleccionarFrases } from "../utils/frases";
-import "./JuegoFrases.css";
 
-const puntosPorAcierto = 40;
-const tiempoPorPregunta = 30;
-const limitePreguntas = 10;
+const puntosPorAcierto = 18;
+const tiempoPorPregunta = 18;
+const limitePreguntas = 18;
+const maxIncorrectos = 3;
 
 function JuegoFrases() {
   const {
@@ -21,6 +23,10 @@ function JuegoFrases() {
     puntajeRonda,
     tiempoRestante,
     aciertos,
+    incorrectos,
+    ultimaIncorrecta,
+    esUltima,
+    comenzar,
     elegirOpcion,
     siguiente,
     reiniciar,
@@ -29,16 +35,30 @@ function JuegoFrases() {
     datos: seleccionarFrases(frases, limitePreguntas), 
     esCorrecta: (frase, opcion) => opcion === frase.correcta,
     puntosPorAcierto,
-    tiempoPorPregunta
+    tiempoPorPregunta,
+    maxIncorrectos
   });
 
   if (!frase) return null;
+
+  if (fase === "introduccion") {
+    return (
+      <Introduccion 
+        onComenzar={comenzar} 
+        limitePreguntas={limitePreguntas} 
+        tiempoPorPregunta={tiempoPorPregunta} 
+        maxIncorrectos={maxIncorrectos} 
+      />
+    );
+  }
 
   if (fase === "fin") {
     return (
       <FinJuego
         puntaje={puntaje}
+        puntosPorAcierto={puntosPorAcierto}
         aciertos={aciertos}
+        incorrectos={incorrectos}
         total={total}
         onReiniciar={() => reiniciar(seleccionarFrases(frases, limitePreguntas))}
       />
@@ -47,26 +67,17 @@ function JuegoFrases() {
 
   return (
     <div>
-      <div className="info-superior">
-        <p className="puntaje">
-          Puntaje: {fase === "feedback" && puntajeRonda > 0
-            ? puntaje - puntajeRonda
-            : puntaje
-          }
-          {fase === "feedback" && puntajeRonda > 0 && (
-            <span className="puntaje-obtenido"> +{puntajeRonda}</span>
-          )}
-        </p>
-        {fase === "pregunta" && (
-          <p className={`tiempo ${tiempoRestante <= 5 ? "casi-agotado" : ""}`}>
-            Tiempo: {tiempoRestante} s
-          </p>
-        )}
-      </div>
+      <EstadoJuego
+        fase={fase}
+        puntaje={puntaje}
+        puntajeRonda={puntajeRonda}
+        tiempoRestante={tiempoRestante}
+        incorrectos={incorrectos}
+        ultimaIncorrecta={ultimaIncorrecta}
+      />
 
       {fase === "pregunta" && (
         <>
-
           <h2>¿Quién dijo esta frase?</h2>
           <Pregunta texto={frase.texto} />
           <Opciones opciones={frase.opciones} onElegir={elegirOpcion} />
@@ -85,6 +96,7 @@ function JuegoFrases() {
           respuestaCorrecta={frase.correcta}
           evidencia={frase.evidencia}
           onSiguiente={siguiente}
+          esUltima={esUltima}
         />
       )}
     </div>
