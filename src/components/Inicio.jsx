@@ -9,10 +9,9 @@ function Inicio() {
         {registroJuegos.map(juego => (
           <div key={juego.id} className="card-juego">
             <h3>{juego.nombre}</h3>
-            <img
+            <img className="imagen-juego"
               src={juego.imagen}
               alt={juego.nombre}
-              width="150"
             />
             <p>{juego.descripcion}</p>
 
