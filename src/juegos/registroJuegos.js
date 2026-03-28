@@ -1,4 +1,7 @@
 import JuegoFrases from "../components/JuegoFrases";
+import JuegoLocalizar from "../components/JuegoLocalizar";
+import JuegoCamisetas from "../components/JuegoCamisetas";
+import JuegoPartidos from "../components/JuegoPartidos";
 
 export const registroJuegos = [
   {
@@ -10,11 +13,27 @@ export const registroJuegos = [
     Componente: JuegoFrases,
   },
   {
+    id: "geoguesser",
+    nombre: "GeoGuessr",
+    descripcion: "Adivina dónde esta ubicado cada uno de estos equipos",
+    imagen: "/geoguessr.png",
+    ruta: "/juegos/localizar",
+    Componente: JuegoLocalizar,
+  },
+  {
     id: "camisetas",
-    nombre: "Kamisama",
-    descripcion: "Adivina quién NO vistió cada una de estas camisetas",
-    imagen: "/de_paul_boca.jpeg",
+    nombre: "Camisetas",
+    descripcion: "Sin descripción",
+    imagen: "/de_paul_boca.png",
     ruta: "/juegos/camisetas",
-    Componente: JuegoFrases,
+    Componente: JuegoCamisetas,
+  },
+  {
+    id: "partidos",
+    nombre: "Partidos",
+    descripcion: "Sin descripción",
+    imagen: "/pinola.png",
+    ruta: "/juegos/partidos",
+    Componente: JuegoPartidos,
   },
 ];
