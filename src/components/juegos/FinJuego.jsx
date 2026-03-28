@@ -1,4 +1,5 @@
 import "./FinJuego.css";
+import "./EstadoJuego.css";
 import EvidenciaYoutube from "./evidencias/EvidenciaYoutube";
 import { youtubeFinJuego } from "../../data/frases/finJuego";
 
@@ -21,27 +22,51 @@ function FinJuego({ puntaje, puntosPorAcierto, aciertos, incorrectos, total, onR
     <div className="fin-juego">
       <div className="card-resultados">
         <h2>
-          Resultados finales
+          Resultados
         </h2>
-        <h3>
-          Puntaje: {puntaje}
-        </h3>
-        <h3>
-          {Math.round((puntaje / maximoPuntaje) * 100)}% de efectividad
-        </h3>
-        <p>
-          {aciertos} correctas 
-        </p>
-        <p>
-          {incorrectos} incorrectas 
-        </p>
-        { noJugadas > 0 && (
-          <p>
-            {total - (aciertos + incorrectos)} no jugadas
+        <div className="estado-juego">
+          <p className="puntaje en-fin-juego">
+            <span className="estado-label">Puntaje</span>
+            <span className="estado-valor">
+              {puntaje}
+            </span>
           </p>
-        )}
+          <p className="puntaje en-fin-juego">
+            <span className="estado-label">Efectividad</span>
+            <span className="estado-valor">
+              {Math.round((puntaje / maximoPuntaje) * 100)}%
+            </span>
+          </p>
+          <p className="puntaje en-fin-juego">
+            <span className="estado-label">Correctas</span>
+            <span className="estado-valor">
+              {aciertos}
+            </span>
+          </p>
+          <p className="puntaje en-fin-juego">
+            <span className="estado-label">Incorrectas</span>
+            <span className="estado-valor">
+              {incorrectos}
+            </span>
+          </p>
+          { noJugadas > 0 && (
+            <p className="puntaje en-fin-juego">
+              <span className="estado-label">No jugadas</span>
+              <span className="estado-valor">
+                {noJugadas}
+              </span>
+            </p>
+          )}
+        </div>
+        <h2>
+          Veredicto
+        </h2>
         <div>
-          <EvidenciaYoutube evidencia={evidencia} />
+          <iframe
+            className="resultado-video"
+            src={`https://www.youtube.com/embed/${evidencia.youtubeId}?start=${evidencia.start}&end=${evidencia.end}&rel=0&modestbranding=1`}
+            title="Evidencia"
+          />
         </div>
       </div>
       

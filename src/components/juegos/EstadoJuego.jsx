@@ -22,14 +22,6 @@ export default function EstadoJuego({
           )}
         </span>
       </p>
-
-      {fase === "pregunta" && (
-        <p className={`tiempo ${tiempoRestante <= 5 ? "casi-agotado" : ""}`}>
-          <span className="estado-label">Tiempo</span>
-          <span className="estado-valor">{tiempoRestante}s</span>
-        </p>
-      )}
-
       <p className="incorrectos">
         <span className="estado-label">Incorrectas</span>
         <span className="estado-valor">
@@ -42,6 +34,12 @@ export default function EstadoJuego({
           )}
         </span>
       </p>
+      {fase === "pregunta" && (
+        <p className={`tiempo ${tiempoRestante <= 5 ? "casi-agotado" : ""}`}>
+          <span className="estado-label">Tiempo</span>
+          <span className="estado-valor">{tiempoRestante}s</span>
+        </p>
+      )}
     </div>
   );
 }
