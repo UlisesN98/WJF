@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPorPregunta = 10, maxIncorrectos = Infinity }) {
   const [indice, setIndice] = useState(0);
   const [seleccion, setSeleccion] = useState(null);
-  const [fase, setFase] = useState("pregunta");
+  const [fase, setFase] = useState("introduccion");
   const [puntaje, setPuntaje] = useState(0);
   const [tiempoRestante, setTiempoRestante] = useState(tiempoPorPregunta);
   const [puntajeRonda, setPuntajeRonda] = useState(0);
@@ -34,6 +34,11 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
 
     return () => clearInterval(intervalo);
   }, [fase, indice]);
+
+  function comenzar() {
+    setFase("pregunta");
+    setTiempoRestante(tiempoPorPregunta);
+  }
 
   function elegirOpcion(opcion) {
     setSeleccion(opcion);
@@ -82,7 +87,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     setRondas(nuevosDatos);
     setIndice(0);
     setSeleccion(null);
-    setFase("pregunta");
+    setFase("introduccion");
     setPuntaje(0);
     setTiempoRestante(tiempoPorPregunta);
     setPuntajeRonda(0);
@@ -101,6 +106,7 @@ function useJuegoPorRondas({ datos, esCorrecta, puntosPorAcierto = 10, tiempoPor
     incorrectos,
     ultimaIncorrecta,
     esUltima,
+    comenzar,
     elegirOpcion,
     siguiente,
     reiniciar,

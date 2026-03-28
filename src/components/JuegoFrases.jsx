@@ -1,3 +1,4 @@
+import Introduccion from "./juegos/Introduccion";
 import EstadoJuego from "./juegos/EstadoJuego";
 import Pregunta from "./juegos/Pregunta";
 import Opciones from "./juegos/Opciones";
@@ -25,6 +26,7 @@ function JuegoFrases() {
     incorrectos,
     ultimaIncorrecta,
     esUltima,
+    comenzar,
     elegirOpcion,
     siguiente,
     reiniciar,
@@ -38,6 +40,17 @@ function JuegoFrases() {
   });
 
   if (!frase) return null;
+
+  if (fase === "introduccion") {
+    return (
+      <Introduccion 
+        onComenzar={comenzar} 
+        limitePreguntas={limitePreguntas} 
+        tiempoPorPregunta={tiempoPorPregunta} 
+        maxIncorrectos={maxIncorrectos} 
+      />
+    );
+  }
 
   if (fase === "fin") {
     return (
